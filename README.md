@@ -1,4 +1,4 @@
-# 📝 Dockerized Flask To-Do App
+# 📝 Dockerized Flask To-Do List
 
 A simple and lightweight To-Do List web application built using **Flask** and **Python**, containerized with **Docker**. This project demonstrates how to build, containerize, and run a Python web app that’s ready for deployment on cloud platforms such as AWS.
 
