@@ -38,15 +38,15 @@ A simple and lightweight To-Do List web application built using **Flask** and **
 #### ✅ Prerequisites
 - Docker installed on your system
 
-2. **Build the Docker Image**
+1. **Build the Docker Image**
      ```bash
      docker build -t flask-todo-app .
 
-3. **Run the Docker Container**
+2. **Run the Docker Container**
    ```bash
    docker run -p 5000:5000 flask-todo-app
 
-4. **Visit the app in browser**
+3. **Visit the app in browser**
    Open your browser and go to: http://localhost:5000
 
 
