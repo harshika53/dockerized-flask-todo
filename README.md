@@ -38,5 +38,31 @@ flask-todo-docker/
 | Container    | Docker            |
 | Version Ctrl | Git + GitHub      |
 
+-----
+
+## 🛠️ Getting Started
+### 🔹  Run with Docker 
+
+#### ✅ Prerequisites
+- Docker installed on your system
+
+#### 📦 Steps
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/flask-todo-docker.git
+   cd flask-todo-docker
+
+2. **Build the Docker Image**
+     ```bash
+     docker build -t flask-todo-app .
+
+3. **Run the Docker Container**
+   ```bash
+   docker run -p 5000:5000 flask-todo-app
+
+4. **Visit the app in browser**
+   Open your browser and go to: http://localhost:5000 
+
 
 
