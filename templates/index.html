@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List </title>
+
+    <!-- Flask-compatible static paths -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+</head>
+<body></body>
+    <h1> <img src="{{ url_for('static', filename='icons/todo.png') }}" alt="Todo Icon" class="title-icon">
+        Get It Done!</h1>
+    <div class="wrapper">
+        <form>
+            <input id="todo-input" type="text" 
+            placeholder="write anything and hit enter to add..." autocomplete="off">
+            <button id="add-button">ADD</button>
+        </form>
+        <ul id="todo-list">
+            <!-- Your dynamically generated todos will go here -->
+        </ul>
+    </div>
+</body>
+</html>

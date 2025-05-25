@@ -1,0 +1,321 @@
+:root{     
+    --background: #101114;     
+    --primary-color: #1C1D20;     
+    --secondary-color: #4A4D57;     
+    --accent-color: #007FFF;     
+    --text-color: #F9F9F9; 
+} 
+
+*{     
+    margin: 0;     
+    padding: 0; 
+} 
+
+html{   
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;   
+    font-size: 16pt;   
+    color: var(--text-color); 
+} 
+
+body{     
+    min-height: 100vh;     
+    padding: 10px;     
+    background-color: var(--background);     
+    display: flex;     
+    flex-direction: column;     
+    align-items: center; 
+} 
+
+h1{     
+    margin-top: 100px;     
+    margin-bottom: 20px;     
+    font-size: 3rem;     
+    font-weight: 800;     
+    text-transform: uppercase;     
+    text-align: center;     
+    color: var(--accent-color);
+    animation: fadeInDown 0.8s ease-out;
+} 
+
+/* Keyframe animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideOut {
+    to {
+        opacity: 0;
+        transform: translateX(-100%);
+        max-height: 0;
+        margin-bottom: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+.wrapper{     
+    width: 700px;     
+    max-width: 100%;     
+    display: flex;     
+    flex-direction: column;     
+    gap: 10px;
+    animation: slideInUp 0.6s ease-out 0.2s both;
+} 
+
+#todo-input{     
+    box-sizing: border-box;     
+    padding: 12px 120px 12px 20px;     
+    width: 100%;     
+    background: none;     
+    border: 2px solid var(--secondary-color);     
+    border-radius: 1000px;     
+    font: inherit;     
+    color: var(--text-color);     
+    caret-color: var(--accent-color);
+    transition: all 0.3s ease;
+} 
+
+#todo-input:focus{     
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(0, 255, 196, 0.1);
+    transform: scale(1.02);
+} 
+
+#todo-input:hover{
+    border-color: var(--accent-color);
+}
+
+form{     
+    position: relative; 
+} 
+
+#add-button{     
+    position: absolute;     
+    top: 10px;     
+    right: 0;      
+    background-color: var(--accent-color);     
+    height: 100%;     
+    padding: 10px 30px;     
+    border: none;     
+    border-radius: 1000px;     
+    font: inherit;     
+    font-weight: 600;     
+    color: var(--background);     
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+} 
+
+#add-button:hover{
+    background-color: #007FFF;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 170, 255, 0.3);
+}
+
+#add-button:active{
+    transform: scale(0.98);
+    animation: pulse 0.3s ease;
+}
+
+#add-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+#add-button:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+.todo{     
+    margin-top: 20px;
+    margin-bottom: 10px;     
+    padding: 0 16px;     
+    background-color: var(--primary-color);     
+    border-radius: 15px;     
+    display: flex;     
+    align-items: center;
+    transition: all 0.3s ease;
+    animation: slideInUp 0.4s ease-out;
+    border: 2px solid transparent;
+} 
+
+.todo:hover{
+    background-color: #242529;
+    border-color: var(--secondary-color);
+    transform: translateX(5px);
+}
+
+.todo.removing {
+    animation: slideOut 0.4s ease-in forwards;
+}
+
+.todo .todo-text{     
+    padding: 15px;     
+    padding-right: 0;     
+    flex-grow: 1;     
+    transition: all 0.3s ease; 
+} 
+
+.delete-button{     
+    padding: 8px;     
+    background: none;     
+    border: none;     
+    display: flex;     
+    justify-content: center;     
+    align-items: center;     
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+} 
+
+.delete-button:hover{
+    background-color: rgba(255, 0, 51, 0.1);
+    transform: scale(1.1);
+}
+
+.delete-button:active{
+    transform: scale(0.9);
+}
+
+.delete-button svg{     
+    transition: all 0.3s ease; 
+} 
+
+.delete-button:hover svg{     
+    fill: #ff0033;
+    transform: rotate(90deg);
+} 
+
+.custom-checkbox{     
+    border: 2px solid var(--accent-color);     
+    border-radius: 50%;     
+    min-height: 20px;     
+    min-width: 20px;     
+    display: flex;     
+    justify-content: center;     
+    align-items: center;     
+    flex-shrink: 0;     
+    transition: all 0.3s ease;     
+    cursor: pointer; 
+} 
+
+.custom-checkbox:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 0 3px rgba(0, 183, 255, 0.2);
+}
+
+input[type="checkbox"]:checked ~ .custom-checkbox{     
+    background-color: var(--accent-color);
+    transform: scale(1.1);
+} 
+
+input[type="checkbox"]:checked ~ .custom-checkbox svg{     
+    fill: var(--primary-color);
+    animation: pulse 0.3s ease;
+} 
+
+input[type="checkbox"]:checked ~ .todo-text{     
+    text-decoration: line-through;     
+    color: var(--secondary-color);
+    transform: translateX(10px);
+} 
+
+input[type="checkbox"]{     
+    display: none; 
+} 
+
+/* Empty state animation */
+.empty-state {
+    text-align: center;
+    opacity: 0.6;
+    animation: fadeInDown 0.5s ease-out;
+}
+
+/* Loading animation for when adding todos */
+.loading {
+    animation: shake 0.3s ease-in-out;
+}
+
+@media(max-width: 500px){     
+    html{         
+        font-size: 12pt;     
+    }     
+    
+    #add-button{         
+        position: unset;         
+        width: 100%;         
+        margin-top: 10px;         
+        padding: 15px;         
+        height: auto;     
+    }
+    
+    #add-button:hover{
+        transform: none;
+    }
+    
+    #add-button:active{
+        transform: scale(0.98);
+    }
+    
+    h1{         
+        margin-top: 50px;         
+        font-size: 15vw;     
+    }
+    
+    .todo:hover{
+        transform: none;
+    }
+}
